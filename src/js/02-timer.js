@@ -18,7 +18,7 @@ const timer = {
         }
         this.isActive = true
         setInterval(()=>{
-            currentTime = new Date()
+            const currentTime = Date.now()
             const deltaTime = startTime - currentTime
             const timeComponents = convertMs(deltaTime)
             updateClockFace(timeComponents)
