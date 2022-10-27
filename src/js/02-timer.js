@@ -17,10 +17,14 @@ const timer = {
             return
         }
         this.isActive = true
-        setInterval(()=>{
+        const IdInteval = setInterval(()=>{
             const currentTime = Date.now()
             const deltaTime = startTime - currentTime
             const timeComponents = convertMs(deltaTime)
+            if (deltaTime < 999) {
+                clearInterval(IdInteval)
+                this.isActive = false;
+            }
             updateClockFace(timeComponents)
         },1000)
     }
